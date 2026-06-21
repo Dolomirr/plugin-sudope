@@ -4,11 +4,19 @@
 
 A fish shell port of oh-my-zsh's [sudo plugin]
 
+Now also allow to set any other command instead of `sudo`!
+
 ### Install
 
 With [Oh-My-Fish]:
 ```fish
 omf install sudope
+```
+
+With [Fisher]:
+
+``` fish
+fisher install Dolomirr/plugin-sudope
 ```
 
 ### Usage
@@ -31,6 +39,20 @@ For example, to set the sequence to <kbd>Alt</kbd>+<kbd>u</kbd> you can add:
 set -gx sudope_sequence \eu
 ```
 To `~/.config/omf/init.fish`.
+
+
+### Customizing prefix command
+
+By default, plugin prepends `sudo `. You can change this to run `run0`, `doas`, or any other command by setting `SUDOPE_COMMAND` in your `config.fish`:
+
+``` fish
+# To use opendoas or BSD's doas
+set -gx SUDOPE_COMMAND 'doas'
+
+# To use systemd's run0
+set -gx SUDOPE_COMMAND 'run0'
+```
+
 
 **Escape in Fish**
 
@@ -62,3 +84,4 @@ Commits e45d168 and 0928ab2: 2017 [ISC] @ [Chloe Kudryavtsev]
 [ISC]: http://cvsweb.openbsd.org/cgi-bin/cvsweb/src/share/misc/license.template?rev=HEAD
 [Itzik Ephraim]: https://github.com/oranja
 [Chloe Kudryavtsev]: https://github.com/5paceToast
+[Fisher]: https://github.com/jorgebucaran/fisher
